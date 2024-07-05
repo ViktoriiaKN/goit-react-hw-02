@@ -3,6 +3,7 @@ import './App.css';
 import Description from './components/Description/Description';
 import Feedback from './components/Feedback/Feedback';
 import Options from './components/Options/Options';
+import Notification from './components/Notification/Notification';
 
 function App() {
   const [feedbacks, setFeedbacks] = useState({
@@ -16,11 +17,13 @@ setFeedbacks(prevFeedbacks =>  ({...prevFeedbacks, [feedbackType]: prevFeedbacks
 ))
   }
 
+ const totalFeedback = feedbacks.good + feedbacks.neutral + feedbacks.bad;
+
   return (
     <>
       <Description />
       <Options updateFeedback={updateFeedback}/>
-      <Feedback feedbacks={feedbacks}/>
+      {totalFeedback > 0 ? (<Feedback feedbacks={feedbacks} totalFeedback={totalFeedback}/>) : (<Notification/>) }
     </>
   );
 }
