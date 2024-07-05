@@ -1,4 +1,4 @@
-const Options = ({updateFeedback}) => {
+const Options = ({updateFeedback, totalFeedback}) => {
 
 
   return (
@@ -6,7 +6,7 @@ const Options = ({updateFeedback}) => {
       <button onClick={() => updateFeedback('good')}>Good </button>
       <button onClick={() => updateFeedback('neutral')}>Neutral </button>
       <button onClick={() => updateFeedback('bad')}>Bad </button>
-      <button>Reset</button>
+     {totalFeedback > 0 &&  <button>Reset: {totalFeedback}</button> }
     </div>
   );
 };

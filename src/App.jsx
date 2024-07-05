@@ -22,7 +22,7 @@ setFeedbacks(prevFeedbacks =>  ({...prevFeedbacks, [feedbackType]: prevFeedbacks
   return (
     <>
       <Description />
-      <Options updateFeedback={updateFeedback}/>
+      <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback}/>
       {totalFeedback > 0 ? (<Feedback feedbacks={feedbacks} totalFeedback={totalFeedback}/>) : (<Notification/>) }
     </>
   );
