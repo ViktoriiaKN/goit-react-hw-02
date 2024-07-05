@@ -17,12 +17,20 @@ setFeedbacks(prevFeedbacks =>  ({...prevFeedbacks, [feedbackType]: prevFeedbacks
 ))
   }
 
+  const resetFeedbacks = () => {
+    setFeedbacks({
+      good: 0, 
+      neutral: 0,
+      bad: 0,
+    })
+  }
+
  const totalFeedback = feedbacks.good + feedbacks.neutral + feedbacks.bad;
 
   return (
     <>
       <Description />
-      <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback}/>
+      <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} resetFeedbacks={resetFeedbacks}/>
       {totalFeedback > 0 ? (<Feedback feedbacks={feedbacks} totalFeedback={totalFeedback}/>) : (<Notification/>) }
     </>
   );
